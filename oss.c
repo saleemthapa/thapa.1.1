@@ -25,6 +25,7 @@ while((opt = getopt(argc, argv, "hn:s:t:"))!= -1){
 	       		printf("\n[-s simulation] indicates how many children to allow to run simultaneously\n");
         		printf("\n[-t iteration] which is the number to pass to the worker process\n");
         		printf("\nprocess, simulation, iteration should all be integer values\n\n");
+			break;
 		case 'n':
 			if(optarg!= NULL){
 				process = atoi(optarg);
@@ -46,6 +47,12 @@ while((opt = getopt(argc, argv, "hn:s:t:"))!= -1){
 
 	}
 }
+// Check if the total number of processes is greater than or equal to the number of simultaneous processes
+    if (process < simulation) {
+        fprintf(stderr, "Error: Total number of processes (-n) should be greater than or equal to the number of simultaneous processes (-s).\n");
+        exit(EXIT_FAILURE);
+    }
+
 printf("From Parent:\n\nProc: %d\nSimul: %d\nIter: %d\n", process, simulation, iteration); 
 for(int i = 1; i <= process;i++){
 pid_t  childPid = fork();

@@ -1,0 +1,55 @@
+#Project1 Skeleton multiple processes
+Submitted By: Saleem Thapa
+
+Description:
+
+This project demonstrates multi-process management in a Unix environment using C programming. 
+It consists of two main components: oss (the parent process) and user(the child process). oss is responsible for launching
+and managing multiple user processes with specific parameters.
+
+Compilation:
+
+-> Ensure you have GCC (GNU Compiler Collection) installed on your system.
+
+-> Open your terminal and navigate to the project directory where oss.c, worker.c, and the Makefile are located.
+
+To compile the project, run the following command:
+
+-> Type command "make" This will compile both oss.c and user.c and generate the oss and user executables.
+
+Running the Program: 
+
+type "./oss -n <total_children> -s <simultaneous_children> -t <iteration> "
+Example : ./oss -n 5 -s 3 -t 7
+
+->This command will launch oss with 5 total children, allow a maximum of 3 children to run simultaneously
+,and specify 7 iterations per child.
+
+Cleaning Up: 
+To remove the compiled executables, use the following command:
+ type "make clean" This will delete the oss and user executables.
+
+Challenges:
+
+Since this was a first project and professor mark had uploaded few resources to complete this project, I felt pretty comfortable on finishing this project.
+
+
+Git log :
+commit 379b196d1f388cb857c2afa8eab3442a48e374a1 (HEAD -> master, origin/master)
+Author: saleem thapa <thapa@opsys.cs.umsl.edu>
+Date:   Thu Jan 25 22:49:49 2024 -0600
+
+    Added functionality to user process and made program somewhat running
+
+commit da6a32e36787a36c39a711dbd274fd05fe780e45
+Author: saleem thapa <thapa@opsys.cs.umsl.edu>
+Date:   Tue Jan 23 17:12:12 2024 -0600
+
+    Parsing options using getopt(3)
+
+commit ec73a7a6f4a618c4c923af663ed50d1009515203
+Author: saleem thapa <thapa@opsys.cs.umsl.edu>
+Date:   Tue Jan 23 15:49:40 2024 -0600
+
+    First Commit to github
+
